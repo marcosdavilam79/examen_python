@@ -8,6 +8,7 @@ import re
 
 def verificar_fortaleza_contrasena(contrasena):
     longitud_minima = 8
+    longitud_maxima = 16
     contiene_mayuscula = bool(re.search(r'[A-Z]', contrasena))
     contiene_minuscula = bool(re.search(r'[a-z]', contrasena))
     contiene_numero = bool(re.search(r'\d', contrasena))
@@ -19,8 +20,14 @@ def verificar_fortaleza_contrasena(contrasena):
 
     if len(contrasena) < longitud_minima:
         return "La contraseña debe tener al menos 8 caracteres."
+
     # longitud_minima: Es un valor entero que representa la longitud mínima que debe tener la contraseña
     # (en este caso, 8 caracteres).
+
+    if len(contrasena) > longitud_maxima:
+        return "La contraseña debe tener maximo 16 caracteres."
+    # longitud_maxima: Es un valor entero que representa la longitud maxima que debe tener la contraseña
+    # (un maximo de 16 caracteres).
 
     elif not contiene_mayuscula:
         return "La contraseña debe contener al menos una letra mayúscula."
@@ -45,24 +52,25 @@ def verificar_fortaleza_contrasena(contrasena):
     elif not contiene_caracter_especial:
         return "La contraseña debe contener al menos un carácter especial (por ejemplo, !@#$%^&*(),.?\:{}|<>)."
 
-    #•	contiene_caracter_especial: Es una variable booleana que se establecerá en True si la contraseña
+    # contiene_caracter_especial: Es una variable booleana que se establecerá en True si la contraseña
     # contiene al menos un carácter especial, que es cualquier carácter que no sea letra o número
 
     else:
         return "La contraseña es lo suficientemente fuerte."
+    # La contraeña ingresa es lo suficientemente fuerte: OK
 
 
-print("UNIVERSIDAD INTERNACIONAL")
+print("UNIVERSIDAD INTERNACIONAL UIDE")
 print("MAESTRIA EN CIBERSEGURIDAD")
 print("CURSO DE PYTHON")
 print("EXAMEN FINAL")
-print("App de Contraseñas Seguras")
+print("APICACION DE CONTRAEÑAS SEGURAS")
 print()
 
 print("INDIACIONES ACERCA DEL PROGRAMA")
 print("Este programa verificará si la contraseña ingresada cumple con ciertas condiciones mínimas" )
 print("para considerarse fuerte. Esas condiciones incluyen:" )
-print("1.	Debe tener al menos 8 caracteres de longitud.")
+print("1.	Debe tener minimo 8 caracteres y maximo 16 caracteres de longitud")
 print("2.	Debe contener al menos una letra mayúscula.")
 print("3.	Debe contener al menos una letra minúscula.")
 print("4.	Debe contener al menos un número.")
